@@ -1,0 +1,48 @@
+{
+    "author": "Markus Peröbner <markus.peroebner@gmail.com>",
+    "name": "osm-read",
+    "description": "an openstreetmap XML and PBF data parser",
+    "tags": [
+        "osm",
+        "openstreetmap"
+    ],
+    "version": "0.6.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/marook/osm-read.git"
+    },
+    "bugs": {
+        "url": "https://github.com/marook/osm-read/issues"
+    },
+    "main": "lib/main.js",
+    "browser": {
+        "protobufjs": "protobufjs/dist/ProtoBuf.noparse.js"
+    },
+    "scripts": {
+        "test": "mocha test/*.js",
+        "buildProto": "node_modules/protobufjs/bin/proto2js lib/proto/fileformat.proto -commonjs > lib/proto/fileformat.js && node_modules/protobufjs/bin/proto2js lib/proto/osmformat.proto -commonjs > lib/proto/osmformat.js",
+        "browserify": "browserify ./lib/pbfParser.js --bare -s=pbfParser -d -p [minifyify --map osm-read-pbf.map.json --output osm-read-pbf.map.json] -o osm-read-pbf.js"
+    },
+    "engines": [
+        "node >= 0.10.0"
+    ],
+    "dependencies": {
+        "node-xml": "1.0.2",
+        "protobufjs": "3.8.2"
+    },
+    "optionalDependencies": {
+        "zlibjs": "0.2.0",
+        "setimmediate": "1.0.2"
+    },
+    "devDependencies": {
+        "mocha": "1.19.0",
+        "should": "3.3.1",
+        "minifyify": "6.1.0"
+    },
+    "licenses": [
+        {
+            "type": "LGPLv3",
+            "url": "http://www.gnu.org/licenses/lgpl-3.0-standalone.html"
+        }
+    ]
+}

@@ -1,0 +1,217 @@
+/* 숨겨진 리스트 스타일 */
+.hidden {
+    display: none;
+}
+
+#grid-size-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    position: absolute;
+    z-index: 1000;
+    width: 100px;
+}
+
+#grid-size-list li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+#grid-size-list li:hover {
+    background-color: #dcdcdc;
+}
+
+/* 토글 버튼 스타일 */
+#grid-size-toggle {
+    background-color: #787878;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+#grid-size-toggle:hover {
+    background-color: #545c54;
+}
+
+/* 버튼을 좌우로 배치 */
+.button-container {
+    display: flex;          /* Flexbox로 버튼을 좌우로 배치 */
+    justify-content: space-between;  /* 버튼 사이에 여백 */
+    gap: 10px;              /* 버튼 간격 */
+    margin-bottom: 15px;    /* 버튼 아래쪽 여백 */
+}
+
+.button-container button {
+    width: 48%;             /* 버튼이 좌우로 균등하게 배치되도록 설정 */
+}
+
+/* 토글 스위치와 텍스트를 포함하는 컨테이너 */
+.toggle-container {
+    display: flex;
+    align-items: center;  /* 수직으로 가운데 정렬 */
+    gap: 10px;  /* 스위치와 텍스트 사이에 간격 추가 */
+    margin-top: 15px;
+}
+
+/* 스위치 스타일 */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 27px;
+}
+  
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: -6px;
+    left: 0;
+    right: 0;
+    bottom: 6px;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 27px;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 55%;
+}
+  
+input:checked + .slider {
+    background-color: #2196F3;
+}
+  
+input:checked + .slider:before {
+    transform: translateX(52px);
+}
+
+/* 둥근 모양의 슬라이더 */
+.slider.round {
+    border-radius: 34px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* 지도 설정 */
+.map-container {
+    position: relative;
+    margin-left: 220px;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+#map {
+    width: 1200px;
+    height: 800px;
+}
+
+/* 입력 설정 */
+.input-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-right: 1px solid #ccc;
+    height: 100%;
+    z-index: 2;  /* Ensure it's above other content */
+}
+
+.input-container label {
+    display: block;
+    margin-top: 15px;
+}
+
+.input-container input, .input-container button {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 4px;
+}
+
+.input-container button {
+    padding: 4px;
+    background-color: #787878;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.input-container button:hover {
+    background-color: #545c54;
+}
+
+/* 파일 업로드 버튼 */
+.custom-file-upload {
+    display: block;  /* Make it block to take the full width */
+    width: 100%;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 10px; /* Consistent margin */
+}
+
+input[type="file"] {
+    display: none;  /* Hide the actual input */
+}
+
+/* 일반 버튼 스타일 */
+button {
+    cursor: pointer;
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* 충전소 개수 입력 필드 */
+.input-row {
+    display: flex;
+    align-items: center;    /* Ensures vertical alignment */
+    margin-top: 1px;
+    gap: 20px;              /* 텍스트와 입력란 사이 간격 */
+}
+
+.input-row label {
+    flex: 0 0 65x;        /* Set a fixed width for the label */
+    font-size: 15px;
+    margin: 0;              /* Remove any margin from the label */
+}
+
+.input-row input {
+    flex: 1;                /* Input field takes up more space */
+    padding: 1px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;         /* Match the input font size with the label */
+    height: 20px;            /* Ensures consistent input height */
+}

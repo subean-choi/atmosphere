@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "express": "^4.21.0",
+    "geojson": "^0.5.0",
+    "osm-read": "^0.6.0",
+    "shapefile": "^0.6.6"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}

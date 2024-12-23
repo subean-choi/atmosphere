@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Atmospheric Monitoring Network</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="atmosphere.css">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="atmosphere.js" type="module"></script>
+    <script src="algorithm.js" type="module"></script>
+</head>
+<body>
+    <div class="input-container">
+
+        
+        <!-- 격자 크기 설정을 위한 드롭다운 -->
+        <button id="grid-size-toggle">격자 크기 선택</button>
+        <ul id="grid-size-list" class="hidden">
+            <li data-size="0.5">0.5</li>
+            <li data-size="1">1</li>
+            <li data-size="1.5">1.5</li>
+            <li data-size="2">2</li>
+            <li data-size="2.5">2.5</li>
+            <li data-size="3">3</li>
+        </ul>
+
+        <!-- 충전소 개수를 입력받기 위한 입력란 -->
+        <div class="input-row">
+            <label for="station-count-input">측정망 개수:</label>
+            <input type="number" id="station-count-input" value="10" min="1" max="100" />
+        </div>
+
+
+        <!-- 울란바토르, 다르항 지도 선택 버튼 -->
+        <div class="button-container">
+            <button id="ulaanbaatar-btn">울란바토르</button>
+            <button id="darkhan-btn">다르항</button>
+        </div>
+
+        <!-- 격자 ON, OFF 텍스트 및 토굴 -->
+        <div class="toggle-container">
+            <span id="toggle-text">격자 OFF</span>
+            <label class="switch">
+                <input type="checkbox" id="toggle-grid-btn">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <label for="Boundaries_data">행정구역 경계선:</label>
+        <input type="file" id="Boundaries_data" name="Boundaries_data" accept=".geojson" style="display: none;">
+        <button onclick="document.getElementById('Boundaries_data').click();">파일 선택</button><br>
+
+        <label for="Population_data">인구 데이터:</label>
+        <input type="file" id="Population_data" name="Population_data" style="display: none;">
+        <button onclick="document.getElementById('Population_data').click();">파일 삽입</button><br>
+        
+        <label for="Roads_data">도로 데이터:</label>
+        <input type="file" id="Roads_data" accept=".geojson" style="display: none;">
+        <button onclick="document.getElementById('Roads_data').click();">파일 선택</button><br>
+
+        <label for="Waterways_data">수로 데이터:</label>
+        <input type="file" id="Waterways_data" name="Waterways_data" accept=".geojson" style="display: none;">
+        <button onclick="document.getElementById('Waterways_data').click();">파일 선택</button><br>
+
+        <label for="Terrain_data">지형 데이터:</label>
+        <input type="file" id="Terrain_data" name="Terrain_data" style="display: none;">
+        <button onclick="document.getElementById('Terrain_data').click();">파일 삽입</button><br>
+            
+        <label for="Station_data">설치된 측정망:</label>
+        <input type="file" id="Station_data" accept=".json" style="display: none;">
+        <button onclick="document.getElementById('Station_data').click();">파일 선택</button><br>
+
+        <label for="PowerPlants_data">발전소 위치:</label>
+        <input type="file" id="PowerPlants_data" name="PowerPlants_data" accept=".geojson" style="display: none;">
+        <button onclick="document.getElementById('PowerPlants_data').click();">파일 선택</button><br>
+
+        <br>
+        <button id="start-btn">시작</button>
+
+    </div>
+
+    <div class="map-container">
+        <div id="map" style="height: 800px; width: 1200px;"></div>
+    </div>
+
+</body>
+</html>
